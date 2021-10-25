@@ -1,0 +1,133 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size:62.5%; /*hack de los rem*/
+}
+
+body {
+  font-size: 16px; /*hack de los rem, 1 rem=10px*/
+}
+
+/*  
+#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(109, 177, 241);
+  }
+*/
+
+/* para quitarle los bullets a la lista */
+#menu ul {
+  list-style-type: none;
+}
+
+/* Aca se pega menu al bode vertical superior y laterales , se da color al menu y muestraflex pero en columna*/
+  .navigation{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(109, 177, 241);
+    display: flex;
+    flex-direction: column;/*elementos se muestran de arriba hacia abajo*/
+
+}
+
+/* para que se pueda ver correctamente en dispositivos móviles */
+@media (min-width: 480px) {
+    .navigation{
+        flex-direction: row;
+        justify-content: space-between;/*para espaciar los campos de navegación*/
+    }
+    
+}
+
+
+  li {
+    float: left;
+  }
+  
+  li a {
+    list-style-type: none;
+    display: block;
+    color: white;
+    text-align: justify;
+    padding: 2.5rem 7rem;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: rgb(247, 101, 234);
+  }
+
+  #boton_registro {
+    display: inline-block;
+    padding: 1rem 3rem;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 0.9rem #999;
+    
+  }
+  
+  #boton_registro:hover {background-color: #3e8e41}
+  
+  #boton_registro:active {
+    background-color: #3e8e41;
+    box-shadow: 0 0.5rem #666;
+    transform: translateY(0.4rem);
+  }
+
+  /* para fijar la barra de navegación */
+#cabecera{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+
+h1{
+  width: 100%;
+  text-align: center;
+
+}
+main{
+  padding-top: 40rem;
+}
+
+@media (min-width: 480px ) {
+  main {
+    padding-top: 30rem;
+  }
+    
+}
+
+@media (min-width: 768px ) {
+  main {
+    padding-top: 15rem;
+  }
+    
+}
+
+@media (min-width: 1140px ) {
+  main {
+    padding-top: 20rem;
+  }
+    
+}
+
+#principal p{
+  width: 100%
+}

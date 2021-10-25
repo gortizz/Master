@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="preload" href="normalize.css" as="style">
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+        *{
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text],select {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=email] {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=password] {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=tel] {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.contenedor {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+#enviar {
+  display: inline-block;
+  padding: 10px 30px;
+  margin-top: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  
+}
+
+#enviar:hover {background-color: #3e8e41}
+
+#enviar:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+
+    </style>
+
+
+</head>
+<body>
+    <div id="formulario" class="contenedor">
+    <form action="">
+        <h1>Formulario</h1>
+        <br>
+                <div>
+                    <input type="text" id="campoNombreCompleto" class="entrada" placeholder="Nombre Completo">
+                </div>
+                
+                <div> 
+                    <input type="password" id="campoContrasena" class="entrada" placeholder="Contraseña">
+                </div>
+                    
+                <div>
+                    <input type="email" id="campoCorreo" class="entrada" placeholder="Correo electrónico" >
+                </div>
+                    
+                <div>
+                    <input type="email" id="campoConfirmacion" class="entrada"placeholder="Confirmación Correo">
+                </div>
+                    
+                <div>
+                    <input type="tel" id="campoTelefono" class="entrada" placeholder="Teléfono Móvil">
+                </div>    
+                
+                <div >
+                    <input type="submit" value="Enviar" id="enviar" onclick="return almacenarRegistros();"/><!--cambiar Capturar x inicio-->
+                </div>
+                <!--<input type="button" value="Capturar" onclick="Capturar()">-->
+        </form>
+    </div>    
+
+<!-- Esta función me valida las condiciones del correo, tanto longitud como terminación de extensión -->
+<script>
+
+/*
+function inicio(){
+  validar_contrasena_usuario();
+  validar_correo();
+
+}
+
+function validar_contrasena_usuario(){
+
+        var usuario=document.getElementById("campoNombreCompleto");
+        var contrasena=document.getElementById("campoContrasena");
+        var expRegUno=/^[A-Z]{1}[a-zA-Z_-\s]{5,11}$/ ;
+        var expRegDos=/^[A-Z]{1}.{5,11}$/;
+
+        if(expRegUno.test(usuario.value) == true && expRegDos.test(contrasena.value) ==true ){
+          alert('Usuario y contraseña correcta');
+        }
+        else{
+          alert('Usuario/contraseña incorrecta')
+        }
+}
+
+function validar_correo()
+
+{
+  
+        var emailField = document.getElementById("campoCorreo");
+        
+        var reg = /^.+@+.+[.](com|es|co|org)$/;
+        if (reg.test(emailField.value) == true) 
+        {
+       
+          if(emailField.value.length <= 40 && emailField.value.length >= 15){
+            alert("Correo Aceptado");
+          }
+          else{
+            alert("Correo inválido, longitud min 15 max 40 caracteres")
+          }
+        }
+        else{
+            alert("Correo inválido, debe terminar |.com |.es|.co|.org")
+          }
+}
+
+
+//dejar esta funcion por ahora
+
+function almacenarRegistros(){
+  let lstEntrada = document.getElementsByClassName("entrada");
+  arrayGuardar = [];         
+  for (var i = 0; i < lstEntrada.length; i++) {    
+      arrayGuardar[i] = lstEntrada[i].value;
+      console.log (lstEntrada[i].value);     
+      }
+  console.log(arrayGuardar);
+}
+
+*/
+
+
+arreglo=[];
+
+
+function almacenarRegistros(){
+  function Usuario(campoNombreCompleto,campoContrasena,campoCorreo,campoConfirmacion,campoTelefono){
+  this.campoNombreCompleto=campoNombreCompleto;
+  this.campoContrasena=campoContrasena;
+  this.campoCorreo=campoCorreo;
+  this.campoConfirmacion=campoConfirmacion;
+  this.campoTelefono=campoTelefono;
+}
+
+
+//CAPTURAMOS DEL HTML CADA CAMPO Y LO LLEVAMOS A UNA VARIABE CADA UNO
+
+  var nombreCapturar=document.getElementById("campoNombreCompleto").value;
+  var contrasenaCapturar=document.getElementById("campoContrasena").value;
+  var correoCapturar=document.getElementById("campoCorreo").value;
+  var confirmacionCapturar=document.getElementById("campoConfirmacion").value;
+  var telefonoCapturar=document.getElementById("campoTelefono").value;
+  
+  //CREAMOS UN NUEVO OBJETO CON LAS NUEVAS VARIABLES DEFINIDAS
+  
+  nuevoUsuario= new Usuario(nombreCapturar,contrasenaCapturar,correoCapturar,confirmacionCapturar,telefonoCapturar);
+  //console.log(nuevoUsuario);
+  
+
+  if (!arreglo){
+    arreglo = [];
+  }
+  
+  if(arreglo.length>=30){
+    console.log("Se excede tamaño")
+  }
+  else{
+    agregar();
+    ordenarRegistros();
+  }
+
+  function agregar(){
+    //console.log(nuevoUsuario);
+    arreglo.push(nuevoUsuario);
+    console.log(arreglo);
+    console.log(arreglo.length)
+}
+
+return false;
+
+function ordenarRegistros(){
+
+arregloOrdenado=arreglo.sort((a,b) =>{
+
+if (a.campoNombreCompleto < b.campoNombreCompleto){
+  return -1;
+}
+if (a.campoNombreCompleto > b.campoNombreCompleto){
+  return 1;
+}
+return 0;
+
+});
+
+console.log(arregloOrdenado);
+
+}
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
+
